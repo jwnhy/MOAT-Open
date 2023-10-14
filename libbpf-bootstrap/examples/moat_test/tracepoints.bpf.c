@@ -147,7 +147,6 @@ int tp_openat(struct trace_event_raw_sys_enter *ctx)
   host_pid = bpf_get_current_pid_tgid() >> 32;
   host_ppid = BPF_CORE_READ(task, real_parent, tgid);
   bpf_get_current_comm(&evt->comm, sizeof(evt->comm));
-  //bpf_probe_read_user_str(evt->filename, FILENAME_LEN, (void*)ctx->args[1]);
 
   evt->dirfd = ctx->args[0];
   evt->host_pid = host_pid;
@@ -170,7 +169,6 @@ int tp_openat2(struct trace_event_raw_sys_enter *ctx)
   host_pid = bpf_get_current_pid_tgid() >> 32;
   host_ppid = BPF_CORE_READ(task, real_parent, tgid);
   bpf_get_current_comm(&evt->comm, sizeof(evt->comm));
-  //bpf_probe_read_user_str(evt->filename, FILENAME_LEN, (void*)ctx->args[1]);
 
   evt->dirfd = ctx->args[0];
   evt->host_pid = host_pid;
@@ -193,7 +191,6 @@ int tp_open(struct trace_event_raw_sys_enter *ctx)
   host_pid = bpf_get_current_pid_tgid() >> 32;
   host_ppid = BPF_CORE_READ(task, real_parent, tgid);
   bpf_get_current_comm(&evt->comm, sizeof(evt->comm));
-  //bpf_probe_read_user_str(evt->filename, FILENAME_LEN, (void*)ctx->args[1]);
 
   evt->dirfd = 0;
   evt->host_pid = host_pid;
@@ -250,7 +247,6 @@ int tp_execve(struct trace_event_raw_sys_enter *ctx)
   host_pid = bpf_get_current_pid_tgid() >> 32;
   host_ppid = BPF_CORE_READ(task, real_parent, tgid);
   bpf_get_current_comm(&evt->comm, sizeof(evt->comm));
-  //bpf_probe_read_user_str(evt->filename, FILENAME_LEN, (void*)ctx->args[0]);
 
   evt->host_pid = host_pid;
   evt->host_ppid = host_ppid;
@@ -272,7 +268,6 @@ int tp_execveat(struct trace_event_raw_sys_enter *ctx)
   host_pid = bpf_get_current_pid_tgid() >> 32;
   host_ppid = BPF_CORE_READ(task, real_parent, tgid);
   bpf_get_current_comm(&evt->comm, sizeof(evt->comm));
-  //bpf_probe_read_user_str(evt->filename, FILENAME_LEN, (void*)ctx->args[1]);
 
   evt->host_pid = host_pid;
   evt->host_ppid = host_ppid;
