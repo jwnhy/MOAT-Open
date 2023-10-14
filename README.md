@@ -1,7 +1,7 @@
 # MOAT: Towards Safe BPF Kernel Extension
 
 This is the open-source repo for paper titled "MOAT: Towards Safe BPF Kernel
-Extension"
+Extension".
 
 ## Directories
 
@@ -38,11 +38,42 @@ make
 
 1. Install the kernel with MOAT-support on the tested device.
 2. Ensure that two machines are in the same network.
-3. Compile the test-cases, such as sockex{1...4} and dropfilter.
+3. Compile the test-cases, such as `sockex{1...4}`.
 4. On tested device, run `iperf3 -s` to process packets.
 5. On host, run `iperf3` to generate traffic.
 
 ## System Tracing Experiment
+
+1. Compile the test-case, `tracepoints.c`. It loads 11 BPF programs to trace
+system events like page faults.
+2. Compile the [UnixBench](https://github.com/kdlucas/byte-unixbench).
+3. Load the BPF programs by `./tracepoints`.
+4. Run the UnixBench with `./Run -c $(nproc) > results`.
+
+## `seccomp-BPF` Experiment
+
+Please follow the guide in [sysfilter](https://gitlab.com/Egalito/sysfilter)
+to use `sysfilter` to harden Nginx, then run `wrk` to benchmark the hardened
+Nginx.
+
+## `MOAT's Cost vs. #BPF Programs`
+
+In the paper we also include two experiments showing that MOAT supports
+unlimited number of BPF programs.
+
+To reproduce the first experiment, you can find there are
+`execve_X.c` and `execve_X.bpf.c` sources in `moat_test` folder. These
+programs attach `X` BPF programs to the `exec` system call. You can then
+run `./unix_syscall <duration> e` to obtain the throughput of `execl`.
+
+To reproduce the second experiment, you can find there is a `syscalls.c`
+and `syscalls.bpf.c` sources in `moat_test` folder. These programs attach
+*all* available system call tracepoints in the system. You can then run
+UnixBench to obtain an overall system performance score.
+
+> Depending on your configuration, the tracepoints in our system may not
+> be completely the same with yours, in such case, please regenerate the
+> `syscall.bpf.c` with `syscall2bpf.py`
 
 ## Other tools
 
