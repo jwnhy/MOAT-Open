@@ -1,7 +1,7 @@
 # MOAT: Towards Safe BPF Kernel Extension
 
-This is the open-source repo for paper titled
-"MOAT: Towards Safe BPF Kernel Extension"
+This is the open-source repo for paper titled "MOAT: Towards Safe BPF Kernel
+Extension"
 
 ## Directories
 
@@ -10,7 +10,25 @@ This is the open-source repo for paper titled
 executing BPF programs
 - `libbpf-bootstrap/examples/moat_test`: Our test cases used in the paper
 
-## Other used tools
+
+## Kernel Installation
+
+```bash
+sudo make && sudo make modules_install
+```
+
+## Test-case Compile
+
+Please follow the
+[libbpf-bootstrap](https://github.com/libbpf/libbpf-bootstrap/) to get
+necessary tools ready.
+
+```bash
+cd libbpf-bootstrap/examples/moat_test/
+make
+```
+
+## Other tools
 
 - [UnixBench](https://github.com/kdlucas/byte-unixbench)
 - [wrk: Modern HTTP benchmarking tool](https://github.com/wg/wrk)
