@@ -29,10 +29,12 @@ cd libbpf-bootstrap/examples/moat_test/
 make
 ```
 
+## Experiment Notes
+> Note that the performance of MOAT could vary depending on your hardware
+> setup.
 ## Network Experiment
 
-> Note that the performance of MOAT could vary depending on your hardware
-> setup. You need at least two machines for the network experiment; one is the
+> You need at least two machines for the network experiment; one is the
 > host generating traffic and the other is the tested device with MOAT-hardened
 > BPF programs.
 
