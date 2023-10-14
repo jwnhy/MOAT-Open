@@ -1,12 +1,12 @@
 # MOAT: Towards Safe BPF Kernel Extension
 
-This is the open-source repo for paper titled "MOAT: Towards Safe BPF Kernel
+This is the open-source repo for the paper titled "MOAT: Towards Safe BPF Kernel
 Extension".
 
 ## Directories
 
 - `moat_linux`: Our modified Linux kernel with MOAT-support, based on Linux 6.1.38
-- `libbpf-bootstrap`: The user space facilities for conveniently loading &
+- `libbpf-bootstrap`: The user space facilities for convenient loading &
 executing BPF programs
 - `libbpf-bootstrap/examples/moat_test`: Our test cases used in the paper
 
@@ -32,19 +32,19 @@ make
 ## Network Experiment
 
 > Note that the performance of MOAT could vary depending on your hardware
-> setup. You need at least two machines for the network experiment, one is the
-> host generating traffic, the other is the tested device with MOAT-hardened
+> setup. You need at least two machines for the network experiment; one is the
+> host generating traffic and the other is the tested device with MOAT-hardened
 > BPF programs.
 
 1. Install the kernel with MOAT-support on the tested device.
 2. Ensure that two machines are in the same network.
-3. Compile the test-cases, such as `sockex{1...4}`.
-4. On tested device, run `iperf3 -s` to process packets.
-5. On host, run `iperf3` to generate traffic.
+3. Compile the test cases, such as `sockex{1...4}`.
+4. On the tested device, run `iperf3 -s` to process packets.
+5. On the host, run `iperf3` to generate packets.
 
 ## System Tracing Experiment
 
-1. Compile the test-case, `tracepoints.c`. It loads 11 BPF programs to trace
+1. Compile the test case, `tracepoints.c`. It loads 11 BPF programs to trace
 system events like page faults.
 2. Compile the [UnixBench](https://github.com/kdlucas/byte-unixbench).
 3. Load the BPF programs by `./tracepoints`.
@@ -58,8 +58,8 @@ Nginx.
 
 ## `MOAT's Cost vs. #BPF Programs`
 
-In the paper we also include two experiments showing that MOAT supports
-unlimited number of BPF programs.
+In the paper, we also include two experiments showing that MOAT supports
+numerous BPF programs.
 
 To reproduce the first experiment, you can find there are
 `execve_X.c` and `execve_X.bpf.c` sources in `moat_test` folder. These
@@ -71,9 +71,9 @@ and `syscalls.bpf.c` sources in `moat_test` folder. These programs attach
 *all* available system call tracepoints in the system. You can then run
 UnixBench to obtain an overall system performance score.
 
-> Depending on your configuration, the tracepoints in our system may not
-> be completely the same with yours, in such case, please regenerate the
-> `syscall.bpf.c` with `syscall2bpf.py`
+> Depending on your configuration, the tracepoints available in our
+> system may not be completely the same as yours; in such case,
+> please regenerate the `syscall.bpf.c` with `syscall2bpf.py`
 
 ## Other tools
 
