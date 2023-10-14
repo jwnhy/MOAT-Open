@@ -1,0 +1,21 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-g",
+      "-Wall",
+      "-O2",
+      "-I.output",
+      "-I../../libbpf/include/uapi",
+      "-I../../vmlinux/x86/",
+      "-I/remote/home/john/libbpf-bootstrap/blazesym/include",
+      "-c",
+      "-o",
+      ".output/dropfilter.o",
+      "dropfilter.c"
+    ],
+    "directory": "/remote/home/john/libbpf-bootstrap/examples/moat_test",
+    "file": "/remote/home/john/libbpf-bootstrap/examples/moat_test/dropfilter.c",
+    "output": "/remote/home/john/libbpf-bootstrap/examples/moat_test/.output/dropfilter.o"
+  }
+]
