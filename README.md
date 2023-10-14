@@ -56,7 +56,7 @@ Please follow the guide in [sysfilter](https://gitlab.com/Egalito/sysfilter)
 to use `sysfilter` to harden Nginx, then run `wrk` to benchmark the hardened
 Nginx.
 
-## `MOAT's Cost vs. #BPF Programs`
+## MOAT's Cost vs. #BPF Programs
 
 In the paper, we also include two experiments showing that MOAT supports
 numerous BPF programs.
