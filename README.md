@@ -28,6 +28,10 @@ cd libbpf-bootstrap/examples/moat_test/
 make
 ```
 
+## Experiment
+
+> Note that the performance of MOAT could vary depending on your hardware setup.
+
 ## Other tools
 
 - [UnixBench](https://github.com/kdlucas/byte-unixbench)
