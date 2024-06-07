@@ -77,6 +77,17 @@ UnixBench to obtain an overall system performance score.
 > system may not be completely the same as yours; in such case,
 > please regenerate the `syscall.bpf.c` with `syscall2bpf.py`
 
+## Preferred Citation
+
+```bibtex
+@inproceedings{moat,
+author = {Lu, Hongyi and Wang, Shuai and Wu, Yechang and He, Wanning and Zhang, Fengwei},
+title = {{MOAT}: {Towards} {Safe} {BPF} {Kernel} {Extension}},
+booktitle = {33nd USENIX Security Symposium},
+year = {2024}
+}
+```
+
 ## Other tools
 
 - [UnixBench](https://github.com/kdlucas/byte-unixbench)
